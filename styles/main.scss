@@ -84,6 +84,7 @@ header {
 }
 
 .scroll {
+    display: none;
     position: fixed;
     top: 50%;
     left: $space - 40;
@@ -92,6 +93,9 @@ header {
     font-weight: 100;
     letter-spacing: 1px;
     transform: rotate(270deg) translateX(35px);
+    animation: motion 0.3s linear 0s 5 alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
 }
 
 section {
@@ -172,4 +176,14 @@ section {
     letter-spacing: 1px;
     color: #999;
     text-align: center;
+}
+
+@keyframes motion {
+    0% {
+        transform: rotate(270deg) translateX(15px);
+    }
+
+    100% {
+        transform: rotate(270deg) translateX(35px);
+    }
 }

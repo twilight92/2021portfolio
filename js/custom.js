@@ -14,6 +14,10 @@
 		const timer = 500;
 		const lastOrder = 4;
 
+		setTimeout(() => {
+			$('.scroll').fadeIn();
+		}, 100);
+
 		$item.each(function(i, el) {
 			if (i < lastOrder) {
 				setTimeout(function() {
