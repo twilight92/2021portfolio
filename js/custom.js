@@ -1,25 +1,20 @@
 ﻿const init = () => {
 	const $item = $("article.item");
-	const winwWidth = $(window).width();
-	const numAc = $item.size();
-	const articleWidth = $item.outerWidth(true);
-	const widSec = articleWidth * numAc;
-	const widTotal = widSec+600;
+	const itemSize = $item.size();
+	const widItem = $item.outerWidth(true);
+	const widSec = widItem * itemSize;
 	const $section = $("section");
-	const initLeft = $section.offset().left;
 
 	const setSize = () => {
-		$section.width(widTotal);
+		$section.width(widSec);
 		$("body").height(widSec);	
 	};
 
 	const moveScroll = (_this) => {
-		const scroll = $(_this).scrollTop();
-		const scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
-		const amount = scrollBottom === 0 ? winwWidth - initLeft - scroll : initLeft - scroll;
+		const scrollTop = $(_this).scrollTop();
 
-		$section.stop().animate({"left": amount},600);
-	}
+		$section.stop().animate({"right": -scrollTop},600);
+	};
 
 	setSize();
 	
