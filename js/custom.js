@@ -11,19 +11,23 @@
 	};
 
 	const onEffect = () => {
-		const timer = 600;
+		const timer = 500;
+		const lastOrder = 4;
 
 		$item.each(function(i, el) {
-			setTimeout(function() {
-				$(el).find('a').addClass('on');
-				$(el).prev().find('a').removeClass('on');
+			if (i < lastOrder) {
+				setTimeout(function() {
+					$(el).find('a').addClass('on');
+					$(el).prev().find('a').removeClass('on');
 
-				if (i === $item.size() - 1) {
-					setTimeout(() => {
-						$(el).find('a').removeClass('on');
-					}, timer);
-				}
-			}, i * timer);
+					if (i === lastOrder - 1) {
+						setTimeout(() => {
+							$(el).find('a').removeClass('on');
+						}, timer);
+					}
+				}, i * timer);
+			}
+			
 		})
 	};
 
