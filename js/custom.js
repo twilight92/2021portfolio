@@ -27,7 +27,6 @@
 					}
 				}, i * timer);
 			}
-			
 		})
 	};
 
@@ -36,7 +35,7 @@
 			$('html').animate({
 				scrollTop: $(document).height()
 			}, onEffect);
-		}, 700);
+		}, 800);
 	};
 
 	const moveScroll = (_this) => {
