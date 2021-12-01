@@ -10,12 +10,20 @@
 		$("body").height(widSec);	
 	};
 
+	const initScroll = () => {
+		setTimeout(() => {
+			$(document).scrollTop($(document).height(), 1000);
+			
+		}, 500);
+	};
+
 	const moveScroll = (_this) => {
 		const scrollTop = $(_this).scrollTop();
 
 		$section.stop().animate({"right": -scrollTop},600);
 	};
 
+	initScroll();
 	setSize();
 	
 	$(window).on("scroll", () => {
