@@ -1,5 +1,17 @@
 [
     {
-        
+        "image": "item_free",
+        "client": "인터파크",
+        "name": "자유여행",
+        "work": {
+            "contribution": 70,
+            "period": "2020.04 ~ 2021.05"
+        },
+        "info": "프로젝트 오너로 1년간 진행<br>AI를 기반으로 고객이 원하는 형태의 자유여행 전 일정을<br>원스톱으로 상세하고 제공하는 서비스.<br>비메오 영상 커스터마이징, Google Maps Platform",
+        "tag": [
+            "Vimeo Player API",
+            "Google Maps Platform(Maps JavaScript API)",
+            "Maps Static API"
+        ]
     }
 ]

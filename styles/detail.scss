@@ -1,5 +1,67 @@
 @charset "utf-8";
 @import "reset";
 @import "font";
-@import "_partials/card";
 @import "_partials/layout";
+
+section {
+    @include alignLeft();
+
+    .imageWrap {
+        @include card();
+        width: 240px;
+
+    }
+
+    .info {
+        width: 370px;
+        margin-left: 30px;
+        padding-bottom: 30px;
+        font-size: 12px;
+
+        .title {
+            margin-bottom: 30px;
+
+            &_client {
+                font-size: 20px;
+            }
+
+            &_name {
+                font-size: 50px;
+                line-height: 50px;
+                font-weight: 500;
+            }
+        }
+
+        .workData {
+            strong {
+                font-weight: 500;
+            }
+
+            li:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }
+
+        .detail {
+            margin: 20px 0;
+            padding: 10px 0;
+            border-top: 1px solid #999;
+            border-bottom: 1px solid #999;
+            line-height: 25px;
+        }
+
+        .tag {
+            li {
+                display: inline-block;
+                padding: 3px 10px;
+                border: 1px solid #999;
+                border-radius: 20px;
+
+                &:not(:last-child) {
+                    margin-right: 10px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+}
