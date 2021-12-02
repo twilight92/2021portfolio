@@ -35,6 +35,10 @@
 	};
 
 	const initScroll = () => {
+		if ($(window).scrollTop() !== 0) {
+			return;
+		}
+
 		setTimeout(() => {
 			$('html').animate({
 				scrollTop: $(document).height()
@@ -48,8 +52,13 @@
 		$section.stop().animate({"right": -scrollTop},600);
 	};
 
+	const loadHeader = () => {
+		$('header').load("../header.html");
+	};
+
 	initScroll();
 	setSize();
+	loadHeader();
 	
 	$(window).on("scroll", () => {
 		moveScroll(this);
