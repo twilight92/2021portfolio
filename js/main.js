@@ -8,6 +8,7 @@
 		const itemSize = $item.size();
 		const widItem = $item.outerWidth(true);
 		const widSec = widItem * itemSize;
+		const $scrollInfo = $('.scrollInfo');
 
 		const setSize = () => {
 			$section.width(widSec);
@@ -19,7 +20,7 @@
 			const lastOrder = 4;
 
 			setTimeout(() => {
-				$('.scroll').fadeIn();
+				$scrollInfo.fadeIn();
 			}, 100);
 
 			$item.each(function(i, el) {
@@ -60,12 +61,23 @@
 			$('header').load("../header.html");
 		};
 
+		const showScoll = (_this) => {
+			const scrollTop = $(_this).scrollTop();
+			const isBottom = scrollTop + w.innerHeight == $(d).height()
+
+			if (isBottom && $scrollInfo.css('display') === 'none') {
+				$scrollInfo.fadeIn();
+			}
+		};
+
 		initScroll();
 		setSize();
 		loadHeader();
+		showScoll();
 
 		$(w).on("scroll", () => {
 			moveScroll(this);
+			showScoll(this)
 		});
 	}
 
