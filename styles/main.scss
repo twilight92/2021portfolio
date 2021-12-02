@@ -1,7 +1,6 @@
 @charset "utf-8";
 @import "reset";
 @import "font";
-@import "_partials/card";
 @import "_partials/layout";
 
 body {
@@ -9,16 +8,12 @@ body {
 }
 
 section {
-    position: fixed;
-    top: 40%;
-    right: 0;
-    margin-top: -250px;
+    @include alignLeft();
     width: 4600px;
-    height: 500px;
+    margin-top: -250px;
 }
 
 .item {
-    @include alignLeft();
     position: relative;
     top: 50%;
     width: 240px;

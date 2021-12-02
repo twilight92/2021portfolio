@@ -1,7 +1,9 @@
 $space: 90px;
 
 @mixin alignLeft {
-    float: left;
+    >* {
+        float: left;
+    }
 
     &::after {
         content: "";

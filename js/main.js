@@ -1,8 +1,8 @@
-﻿const main = ((d, w, $) => {
+﻿const main = (function(d, w, $)  {
 	let init;
 	init = init || {};
 
-	const ui  = () => {
+	const ui  = function() {
 		const $item = $("article.item");
 		const $section = $("section");
 		const itemSize = $item.size();
@@ -10,16 +10,16 @@
 		const widSec = widItem * itemSize;
 		const $scrollInfo = $('.scrollInfo');
 
-		const setSize = () => {
+		const setSize = function() {
 			$section.width(widSec);
 			$("body").height(widSec);	
 		};
 
-		const onEffect = () => {
+		const onEffect = function() {
 			const timer = 500;
 			const lastOrder = 4;
 
-			setTimeout(() => {
+			setTimeout(function() {
 				$scrollInfo.fadeIn();
 			}, 100);
 
@@ -30,7 +30,7 @@
 						$(el).prev().find('a').removeClass('on');
 
 						if (i === lastOrder - 1) {
-							setTimeout(() => {
+							setTimeout(function() {
 								$(el).find('a').removeClass('on');
 							}, timer);
 						}
@@ -39,29 +39,29 @@
 			})
 		};
 
-		const initScroll = () => {
+		const initScroll = function() {
 			if ($(w).scrollTop() !== 0) {
 				return;
 			}
 
-			setTimeout(() => {
+			setTimeout(function() {
 				$('html').animate({
 					scrollTop: $(d).height()
 				}, onEffect);
 			}, 800);
 		};
 
-		const moveScroll = (_this) => {
+		const moveScroll = function(_this) {
 			const scrollTop = $(_this).scrollTop();
 
 			$section.stop().animate({"right": -scrollTop},600);
 		};
 
-		const loadHeader = () => {
+		const loadHeader = function() {
 			$('header').load("../header.html");
 		};
 
-		const showScoll = (_this) => {
+		const showScoll = function(_this) {
 			const scrollTop = $(_this).scrollTop();
 			const isBottom = scrollTop + w.innerHeight == $(d).height()
 
@@ -75,13 +75,13 @@
 		loadHeader();
 		showScoll();
 
-		$(w).on("scroll", () => {
+		$(w).on("scroll", function() {
 			moveScroll(this);
 			showScoll(this)
 		});
 	}
 
-	init = () => {
+	init = function() {
 		ui();
 	}
 
