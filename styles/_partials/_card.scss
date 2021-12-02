@@ -1,0 +1,22 @@
+@mixin card {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    .item_ {
+        &thumb {
+            width: 100%;
+            height: 400px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 3px 3px 3px #ddd;
+            overflow: hidden;
+        }
+    }
+
+
+
+    img {
+        width: 100%;
+    }
+}

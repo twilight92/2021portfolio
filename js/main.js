@@ -1,71 +1,82 @@
-﻿const init = () => {
-	const $item = $("article.item");
-	const $section = $("section");
-	const itemSize = $item.size();
-	const widItem = $item.outerWidth(true);
-	const widSec = widItem * itemSize;
+﻿const main = ((d, w, $) => {
+	let init;
+	init = init || {};
 
-	const setSize = () => {
-		$section.width(widSec);
-		$("body").height(widSec);	
-	};
+	const ui  = () => {
+		const $item = $("article.item");
+		const $section = $("section");
+		const itemSize = $item.size();
+		const widItem = $item.outerWidth(true);
+		const widSec = widItem * itemSize;
 
-	const onEffect = () => {
-		const timer = 500;
-		const lastOrder = 4;
+		const setSize = () => {
+			$section.width(widSec);
+			$("body").height(widSec);	
+		};
 
-		setTimeout(() => {
-			$('.scroll').fadeIn();
-		}, 100);
+		const onEffect = () => {
+			const timer = 500;
+			const lastOrder = 4;
 
-		$item.each(function(i, el) {
-			if (i < lastOrder) {
-				setTimeout(function() {
-					$(el).find('a').addClass('on');
-					$(el).prev().find('a').removeClass('on');
+			setTimeout(() => {
+				$('.scroll').fadeIn();
+			}, 100);
 
-					if (i === lastOrder - 1) {
-						setTimeout(() => {
-							$(el).find('a').removeClass('on');
-						}, timer);
-					}
-				}, i * timer);
+			$item.each(function(i, el) {
+				if (i < lastOrder) {
+					setTimeout(function() {
+						$(el).find('a').addClass('on');
+						$(el).prev().find('a').removeClass('on');
+
+						if (i === lastOrder - 1) {
+							setTimeout(() => {
+								$(el).find('a').removeClass('on');
+							}, timer);
+						}
+					}, i * timer);
+				}
+			})
+		};
+
+		const initScroll = () => {
+			if ($(w).scrollTop() !== 0) {
+				return;
 			}
-		})
-	};
 
-	const initScroll = () => {
-		if ($(window).scrollTop() !== 0) {
-			return;
-		}
+			setTimeout(() => {
+				$('html').animate({
+					scrollTop: $(d).height()
+				}, onEffect);
+			}, 800);
+		};
 
-		setTimeout(() => {
-			$('html').animate({
-				scrollTop: $(document).height()
-			}, onEffect);
-		}, 800);
-	};
+		const moveScroll = (_this) => {
+			const scrollTop = $(_this).scrollTop();
 
-	const moveScroll = (_this) => {
-		const scrollTop = $(_this).scrollTop();
+			$section.stop().animate({"right": -scrollTop},600);
+		};
 
-		$section.stop().animate({"right": -scrollTop},600);
-	};
+		const loadHeader = () => {
+			$('header').load("../header.html");
+		};
 
-	const loadHeader = () => {
-		$('header').load("../header.html");
-	};
+		initScroll();
+		setSize();
+		loadHeader();
 
-	initScroll();
-	setSize();
-	loadHeader();
-	
-	$(window).on("scroll", () => {
-		moveScroll(this);
-	});
-}
+		$(w).on("scroll", () => {
+			moveScroll(this);
+		});
+	}
 
-$(document).ready(init);
+	init = () => {
+		ui();
+	}
+
+	return init;
+})(document, window, jQuery);
+
+$(document).ready(main);
 
 
 

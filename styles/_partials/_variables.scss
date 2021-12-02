@@ -1,0 +1,11 @@
+$space: 90px;
+
+@mixin alignLeft {
+    float: left;
+
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}

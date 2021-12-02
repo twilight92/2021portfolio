@@ -1,0 +1,25 @@
+@import "./variables";
+@import "./header";
+
+body {
+    width: 100%;
+    background: #f8f8f8;
+
+    &,
+    * {
+        font-family: 'Noto Sans KR', serif;
+        font-weight: 300;
+    }
+
+    &::after {
+        position: fixed;
+        left: $space;
+        bottom: $space;
+        content: "";
+        display: block;
+        width: 800px;
+        height: 190px;
+        background: url(../../img/soojung.svg) no-repeat;
+        background-size: contain;
+    }
+}
