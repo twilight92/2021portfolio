@@ -2,6 +2,44 @@
 	let init;
 	init = init || {};
 
+	const data = function() {
+		const setHTML = function(objData) {
+			const HTML = function(obj, index) {
+				return '<article class="item">' +
+							'<a href="detail.html?index='+ index + '">' +
+								'<div class="item_thumb">' +
+									'<img src="/img/item_' + obj.image + '.jpg">' +
+								'</div>' +
+								'<div class="item_info">' +
+									'<span>' + obj.client + '</span>' +
+									'<h1>' + obj.name + '</h1>' +
+								'</div>' +
+							'</a>' +
+						'</article>';
+			};
+
+			objData.forEach(function(item, i) {
+				$('section')
+					.append(HTML(item, i))
+					.ready(function() {
+						if (objData.length - 1 !== i) {
+							return;
+						}
+
+						ui();
+					});
+			});
+		};
+
+		const getJSONDetail = function(data) {
+			setHTML(data)
+		};
+
+		// 로컬용
+		const jsonSrc = '../json/data.json';
+		$.getJSON(jsonSrc, getJSONDetail);
+	};
+
 	const ui  = function() {
 		const $item = $("article.item");
 		const $section = $("section");
@@ -61,6 +99,10 @@
 			$('header').load("../header.html");
 		};
 
+		const loadSignature = function() {
+			$('.signature').load("../signature.html");
+		};
+
 		const showScoll = function(_this) {
 			const scrollTop = $(_this).scrollTop();
 			const isBottom = scrollTop + w.innerHeight == $(d).height()
@@ -73,17 +115,18 @@
 		initScroll();
 		setSize();
 		loadHeader();
+		loadSignature();
 		showScoll();
 
 		$(w).on("scroll", function() {
 			moveScroll(this);
-			showScoll(this)
+			showScoll(this);
 		});
-	}
+	};
 
 	init = function() {
-		ui();
-	}
+		data();
+	};
 
 	return init;
 })(document, window, jQuery);

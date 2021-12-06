@@ -13,15 +13,15 @@ body {
         font-weight: 300;
     }
 
-    &::after {
+    .signature {
         position: fixed;
         left: $space;
         bottom: $space;
-        content: "";
-        display: block;
         width: 800px;
-        height: 190px;
-        background: url(../../img/soojung.svg) no-repeat;
-        background-size: contain;
+
+        img {
+            display: block;
+            width: 100%;
+        }
     }
 }
