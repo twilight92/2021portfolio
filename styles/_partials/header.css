@@ -1,0 +1,27 @@
+header {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+header h1 {
+  width: 100px;
+  margin-right: 200px;
+}
+
+header h1 img {
+  display: block;
+  width: 100%;
+}
+
+header .link_github {
+  position: fixed;
+  color: #000;
+  opacity: 0.7;
+  font-size: 13px;
+  font-weight: 300;
+}
