@@ -4,7 +4,33 @@ const main = (function(d, w, $)  {
 
 	const ui  = function() {
 		const loadHeader = function() {
-			$('header').load("../header.html");
+             const getParam = function(paramName) {
+                let params = location.search.substr(location.search.indexOf("?") + 1);
+                let paramValue = "";
+
+                params = params.split("&");
+
+                for (let i = 0; i < params.length; i++) {
+                    temp = params[i].split("=");
+                    if ([temp[0]] == paramName) { paramValue = temp[1]; }
+                }
+
+                return paramValue;
+            };
+
+			const setParam = function() {
+				if (getParam('apply') === '') {
+					return;
+				}
+
+				const href = $('#navi li a').attr('href');
+				$('#navi li a').attr('href', href + '?apply=' + getParam('apply'));
+
+                const indexHref = $('header h1 a').attr('href');
+                $('header h1 a').attr('href', indexHref + '?apply=' + getParam('apply'));
+			};
+
+			$('header').load("../header.html", setParam);
 		};
 
 		const loadSignature = function() {

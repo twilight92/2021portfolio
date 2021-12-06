@@ -96,7 +96,24 @@
 		};
 
 		const loadHeader = function() {
-			$('header').load("../header.html");
+			const setParam = function() {
+				if (getParam('apply') === '') {
+					return;
+				}
+
+				const href = $('#navi li a').attr('href');
+				$('#navi li a').attr('href', href + '?apply=' + getParam('apply'));
+
+				const indexHref = $('header h1 a').attr('href');
+                $('header h1 a').attr('href', indexHref + '?apply=' + getParam('apply'));
+
+				$('section .item').each(function(i, item) {
+					const href = $(item).find('a').attr('href');
+					$(item).find('a').attr('href', href + '&apply=' + getParam('apply'));
+				});
+			};
+
+			$('header').load("../header.html", setParam);
 		};
 
 		const loadSignature = function() {
@@ -122,6 +139,20 @@
 			moveScroll(this);
 			showScoll(this);
 		});
+	};
+
+	const getParam = function(paramName) {
+		let params = location.search.substr(location.search.indexOf("?") + 1);
+		let paramValue = "";
+
+		params = params.split("&");
+
+		for (let i = 0; i < params.length; i++) {
+			temp = params[i].split("=");
+			if ([temp[0]] == paramName) { paramValue = temp[1]; }
+		}
+
+		return paramValue;
 	};
 
 	init = function() {
