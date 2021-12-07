@@ -30,11 +30,11 @@ const main = (function(d, w, $)  {
                 $('header h1 a').attr('href', indexHref + '?apply=' + getParam('apply'));
 			};
 
-			$('header').load("../header.html", setParam);
+			$('header').load("./header.html", setParam);
 		};
 
 		const loadSignature = function() {
-			$('.signature').load("../signature.html");
+			$('.signature').load("./signature.html");
 		};
 
 		loadHeader();
@@ -132,11 +132,7 @@ const main = (function(d, w, $)  {
             });
         };
 
-        // 로컬용
-        // const jsonSrc = '../json/data.json';
-
-        // 운영용
-		const jsonSrc = '//raw.githubusercontent.com/twilight92/2021portfolio/master/json/data.json';
+        const jsonSrc = './json/data.json';
         $.getJSON(jsonSrc, getJSONDetail);
     }
 
