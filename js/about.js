@@ -179,7 +179,7 @@ const main = (function(d, w, $)  {
             // private method for UTF-8 encoding
             _utf8_encode : function (string) {
                 string = string.replace(/\r\n/g,"\n");
-                const utftext = "";
+                let utftext = "";
 
                 for (let n = 0; n < string.length; n++) {
 
