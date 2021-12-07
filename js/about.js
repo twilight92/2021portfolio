@@ -18,13 +18,22 @@ const main = (function(d, w, $)  {
             return paramValue;
         };
 
+        const setHref = function($el, param) {
+            if (param === undefined) {
+                param = 'apply';
+            }
+
+            const href = $el.attr('href');
+            $el.attr('href', href + '?' + param + '=' + getParam(param));
+        };
+
         const setParam = function() {
             if (getParam('apply') === '') {
                 return;
             }
 
-            const href = $('header h1 a').attr('href');
-            $('header h1 a').attr('href', href + '?apply=' + getParam('apply'));
+            setHref($('#navi li a'));
+            setHref($('header h1 a'));
         };
 
         $('header').load("./header.html", setParam);

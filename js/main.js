@@ -94,21 +94,30 @@
 			$section.stop().animate({"right": -scrollTop},600);
 		};
 
+		const setHref = function($el, separator, param) {
+			if (separator === undefined) {
+				separator = '?';
+			}
+
+			if (param === undefined) {
+				param = 'apply';
+			}
+
+			const href = $el.attr('href');
+			$el.attr('href', href + separator + param + '=' + getParam(param));
+		};
+
 		const loadHeader = function() {
 			const setParam = function() {
 				if (getParam('apply') === '') {
 					return;
 				}
 
-				const href = $('#navi li a').attr('href');
-				$('#navi li a').attr('href', href + '?apply=' + getParam('apply'));
-
-				const indexHref = $('header h1 a').attr('href');
-				$('header h1 a').attr('href', indexHref + '?apply=' + getParam('apply'));
+				setHref($('#navi li a'));
+				setHref($('header h1 a'));
 
 				$('section .item').each(function(i, item) {
-					const href = $(item).find('a').attr('href');
-					$(item).find('a').attr('href', href + '&apply=' + getParam('apply'));
+					setHref($(item).find('a'), '&');
 				});
 			};
 
