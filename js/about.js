@@ -274,8 +274,6 @@ const main = (function(d, w, $)  {
 		kvMotion.fadeOut();
         movePen();
         checkParam.changeText()
-
-        // if(oApplyName.en !== '') checkParam.changeText();
 	};
 
 	init = function() {

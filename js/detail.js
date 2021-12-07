@@ -89,7 +89,6 @@ const main = (function(d, w, $)  {
                     };
 
                     const showRole = function(data) {
-                        console.log(data.work.role)
                         if (data.work.role !== undefined && data.work.role !== '') {
                             return '<li><strong>역할 - </strong>' + data.work.role + '</li>';
                         }
