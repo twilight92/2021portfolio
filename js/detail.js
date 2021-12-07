@@ -59,7 +59,7 @@ const main = (function(d, w, $)  {
         const getJSONDetail = function(data) {
             data.forEach(function(item, i) {
                 const tagHTML = function(tag) {
-                    return tag.reduce((acc, cur) => {
+                    return tag.reduce(function (acc, cur) {
                         cur = '<li>' + cur + '</li>'
                         return acc + cur;
                     }, '');
