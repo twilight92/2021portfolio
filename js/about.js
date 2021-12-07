@@ -107,7 +107,7 @@ const main = (function(d, w, $)  {
 
             // public method for encoding
             encode : function (input) {
-                const output = "";
+                let output = "";
                 var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
                 let i = 0;
 
