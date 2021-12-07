@@ -8,7 +8,7 @@
 				return '<article class="item">' +
 							'<a href="detail.html?index='+ index + '">' +
 								'<div class="item_thumb">' +
-									'<img src="/img/item_' + obj.image + '.jpg">' +
+									'<img src="./img/item_' + obj.image + '.jpg">' +
 								'</div>' +
 								'<div class="item_info">' +
 									'<span>' + obj.client + '</span>' +
@@ -36,10 +36,10 @@
 		};
 
 		// 로컬용
-		// const jsonSrc = '../json/data.json';
+		const jsonSrc = '../json/data.json';
 
 		// 운영용
-		const jsonSrc = '//raw.githubusercontent.com/twilight92/2021portfolio/master/json/data.json';
+		// const jsonSrc = '//raw.githubusercontent.com/twilight92/2021portfolio/master/json/data.json';
 		$.getJSON(jsonSrc, getJSONDetail);
 	};
 
