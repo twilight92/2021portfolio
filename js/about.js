@@ -27,11 +27,11 @@ const main = (function(d, w, $)  {
             $('header h1 a').attr('href', href + '?apply=' + getParam('apply'));
         };
 
-        $('header').load("../header.html", setParam);
+        $('header').load("./../header.html", setParam);
     };
 
 		const loadSignature = function() {
-			$('.signature').load("../signature.html");
+			$('.signature').load("./../signature.html");
 		};
 
         const sKvFrame = '.kv-frame-con',
