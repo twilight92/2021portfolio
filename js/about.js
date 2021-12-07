@@ -181,7 +181,7 @@ const main = (function(d, w, $)  {
                 string = string.replace(/\r\n/g,"\n");
                 const utftext = "";
 
-                for (const n = 0; n < string.length; n++) {
+                for (let n = 0; n < string.length; n++) {
 
                     let c = string.charCodeAt(n);
 
