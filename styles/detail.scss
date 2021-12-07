@@ -31,36 +31,28 @@ section {
             &arrow {
                 position: absolute;
                 top: 50%;
+                width: 32px;
+                height: 32px;
+                padding: 1px;
                 text-indent: -9999px;
-                background: transparent;
-                border: none;
                 cursor: pointer;
                 z-index: 9999;
-
-                &::after {
-                    content: "";
-                    position: absolute;
-                }
-
-                &::after {
-                    left: calc(100% + 2px);
-                    height: 30px;
-                    width: 30px;
-                    top: -13px;
-                    border-left: 1px solid #222;
-                    border-bottom: 1px solid #222;
-                    transform: rotate(45deg);
-                }
-
+                background: transparent;
+                border: 1px solid #333;
+                border-width: 0 1px 1px 0;
+                display: inline-block;
             }
 
             &prev {
                 left: -50px;
+                transform: rotate(135deg);
+                -webkit-transform: rotate(135deg);
             }
 
             &next {
                 right: 0;
-                transform: rotate(180deg);
+                transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
             }
         }
     }

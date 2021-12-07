@@ -195,51 +195,28 @@ section .slideWrap .slick-list {
 section .slideWrap .slick-arrow {
   position: absolute;
   top: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 1px;
   text-indent: -9999px;
-  background: transparent;
-  border: none;
   cursor: pointer;
   z-index: 9999;
-}
-
-section .slideWrap .slick-arrow::after {
-  content: "";
-  display: block;
-}
-
-section .slideWrap .slick-arrow::after {
-  width: 0;
-  height: 0;
-  border-top: 50px solid transparent;
-  border-right: 100px solid red;
-  border-bottom: 50px solid transparent;
+  background: transparent;
+  border: 1px solid #333;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
 }
 
 section .slideWrap .slick-prev {
-  width: 50px;
-  height: 50px;
-  margin: 25px;
-  -webkit-transform: rotate(135deg);
+  left: -50px;
   transform: rotate(135deg);
-}
-
-section .slideWrap .slick-prev::after {
-  content: '';
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  width: 50px;
-  height: 50px;
-  background: #fff;
+  -webkit-transform: rotate(135deg);
 }
 
 section .slideWrap .slick-next {
-  width: 50px;
-  height: 50px;
-  margin: 25px;
-  -webkit-transform: rotate(315deg);
-  transform: rotate(315deg);
-  -o-transform: rotate(315deg);
+  right: 0;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }
 
 section .imageWrap {
