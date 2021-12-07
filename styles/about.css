@@ -131,7 +131,7 @@ body {
 
 body,
 body * {
-  font-family: 'Noto Sans KR', serif;
+  font-family: 'Noto Sans KR', 'Malgun Gothic';
   font-weight: 300;
 }
 

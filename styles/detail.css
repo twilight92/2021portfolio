@@ -131,7 +131,7 @@ body {
 
 body,
 body * {
-  font-family: 'Noto Sans KR', serif;
+  font-family: 'Noto Sans KR', 'Malgun Gothic';
   font-weight: 300;
 }
 
@@ -204,28 +204,42 @@ section .slideWrap .slick-arrow {
 
 section .slideWrap .slick-arrow::after {
   content: "";
-  position: absolute;
+  display: block;
 }
 
 section .slideWrap .slick-arrow::after {
-  left: calc(100% + 2px);
-  height: 30px;
-  width: 30px;
-  top: -13px;
-  border-left: 1px solid #222;
-  border-bottom: 1px solid #222;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-right: 100px solid red;
+  border-bottom: 50px solid transparent;
 }
 
 section .slideWrap .slick-prev {
-  left: -50px;
+  width: 50px;
+  height: 50px;
+  margin: 25px;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+section .slideWrap .slick-prev::after {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 50px;
+  height: 50px;
+  background: #fff;
 }
 
 section .slideWrap .slick-next {
-  right: 0;
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  width: 50px;
+  height: 50px;
+  margin: 25px;
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
+  -o-transform: rotate(315deg);
 }
 
 section .imageWrap {
