@@ -104,7 +104,7 @@
 				$('#navi li a').attr('href', href + '?apply=' + getParam('apply'));
 
 				const indexHref = $('header h1 a').attr('href');
-                $('header h1 a').attr('href', indexHref + '?apply=' + getParam('apply'));
+				$('header h1 a').attr('href', indexHref + '?apply=' + getParam('apply'));
 
 				$('section .item').each(function(i, item) {
 					const href = $(item).find('a').attr('href');

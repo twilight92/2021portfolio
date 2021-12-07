@@ -109,7 +109,7 @@ const main = (function(d, w, $)  {
             encode : function (input) {
                 const output = "";
                 var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
-                const i = 0;
+                let i = 0;
 
                 input = Base64._utf8_encode(input);
 
