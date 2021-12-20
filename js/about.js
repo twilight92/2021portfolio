@@ -100,7 +100,7 @@ const main = (function(d, w, $)  {
                 }
             }
             const PARAMVALUE = get.paramVal('apply');
-            switch (PARAMVALUE) { case "eb": oApplyName = { en: "ZUJheQ==", kr: "", txt: "" }; break; default: oApplyName = { en: "", kr: "", txt:"" } }
+            switch (PARAMVALUE) { case "em": oApplyName = { en: "7J2066eI7Yq4", kr: "", txt: "" }; break; default: oApplyName = { en: "", kr: "", txt:"" } }
         })();
 
         /**
@@ -273,7 +273,7 @@ const main = (function(d, w, $)  {
         kvMotion.appendBg();
 		kvMotion.fadeOut();
         movePen();
-        checkParam.changeText()
+        checkParam.changeText();
 	};
 
 	init = function() {
