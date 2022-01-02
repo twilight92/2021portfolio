@@ -100,7 +100,7 @@ const main = (function(d, w, $)  {
                 }
             }
             const PARAMVALUE = get.paramVal('apply');
-            switch (PARAMVALUE) { case "em": oApplyName = { en: "7J2066eI7Yq4", kr: "", txt: "" }; break; default: oApplyName = { en: "", kr: "", txt:"" } }
+            switch (PARAMVALUE) { case "em": oApplyName = { en: "7J2066eI7Yq4", kr: "", txt: "" }; case "du": oApplyName = { en: "65GQ64KY66y0", kr: "", txt: "" }; break; default: oApplyName = { en: "", kr: "", txt:"" } }
         })();
 
         /**
@@ -278,7 +278,7 @@ const main = (function(d, w, $)  {
 
 	init = function() {
 		ui();
-	}
+	};
 
 	return init;
 })(document, window, jQuery);
